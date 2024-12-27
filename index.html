@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link id="dynamic-favicon" rel="icon" type="image/png" href="/public/hacker.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PassOp - Your Own Password Manager</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      // Array of favicon images to rotate
+      const favicons = [
+        "/public/hacker.png", 
+        "/public/hacker 1.webp", 
+        "/public/hacker2.jpg"
+      ];
+
+      let currentFaviconIndex = 0; // Start with the first favicon
+      const faviconElement = document.getElementById('dynamic-favicon');
+
+      // Function to change the favicon
+      function changeFavicon() {
+        // Update favicon index
+        currentFaviconIndex = (currentFaviconIndex + 1) % favicons.length;
+        // Change the favicon by updating the href attribute
+        faviconElement.href = favicons[currentFaviconIndex];
+      }
+
+      // Change the favicon every 5 seconds
+      setInterval(changeFavicon, 1000);
+    </script>
+  </body>
+</html>
